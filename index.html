@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="main.css" rel="stylesheet"> <!--/* Link to CSS */-->
+    <script src="main.js"></script> <!--Link to Javascript-->
+
+    <!--Link to Font-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+
+    <!--Link to Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>Climate Clicker</title>
+    <!--Creative project for Climate Fiction in the City. Created in collaboration by David and Andrew.-->
+
+  </head>
+
+  <body>
+    <div class="container-fluid d-flex align-items-center justify-content-center header">
+      <!-- Content here -->
+      <h1>Climate Clicker</h1>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col left">
+                <div class="row moneyBox">
+                    <h2 id="gold" class="mTitle">Money: $0</h2>
+                    <h3 id="goldps" class="mTitle">Per second: $0</h2>
+                </div>
+                
+                    <h2 class="newsTitle" onclick="changeNews()">News</h2>
+                    <div id="news1">Welcome to Climate Clicker! Click on Earth to start making money. Buy upgrades and purify Earth.</div>
+
+                    <div class="purifybar">Progress...</div>
+
+                    <div id="barsize" class="progress pbar bg-gradient" style="background-color: lightgray;" role="progressbar" aria-label="Animated striped example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <div id="barpercent" class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 0%;font-family: 'Audiowide', Arial, sans-serif"></div>
+                    </div>
+                      
+
+            </div>
+            <div class="col-6 middle">
+
+                <div onclick="incrementCounter()" class="earth">
+                    <img src="Earth.png" class="imgEarth">
+                </div>
+                  
+            </div>
+            
+            <div class="col right text-left">
+                <h2 class="sTitle">Investments</h2>
+                <p class="text-center">Buy upgrades here!</p>
+
+                <!--May use id="WTB" and disable it in Javascript once not enough money, but there is bug in Safari-->
+
+                <button type="button" onclick="purchaseWindturbine()" style="font-family: 'Audiowide', Arial, sans-serif;" class="btn btn-outline-success"
+                data-bs-toggle="tooltip" data-bs-placement="left"
+                data-bs-title="A wind turbine is a device that generates electricity by converting wind energy to mechanical energy that powers an electrical generator. While completely free of carbon emissions, a wind turbine is only efficient in areas with strong powerful wind such as shores or mountainous regions. Wind turbines are expensive compared to non-renewable energy. It is being increasingly used to reduce reliance on fossil fuels.">
+                Wind Turbine
+                </button>
+                <p id="WTCost">Cost: $20 / +$1 per second</p>
+
+                <button type="button" onclick="purchaseCoalPlant()" style="font-family: 'Audiowide', Arial, sans-serif;" class="btn btn-outline-danger"
+                data-bs-toggle="tooltip" data-bs-placement="left"
+                data-bs-title="Burns coal in a power plant to produce heat that spins a turbine to generate electricity. Coal has more energy density than solar or wind energy and is much cheaper. However, coal has environmental consequences such as producing carbon dioxide, reducing air quality, and having limited quantity on Earth. ">
+                Coal Plant
+                </button>
+                <p id="CPCost">Cost: $25 / +$2 per second</p>
+
+                <button type="button" onclick="purchaseSolarPlant()" style="font-family: 'Audiowide', Arial, sans-serif;" class="btn btn-outline-success"
+                data-bs-toggle="tooltip" data-bs-placement="left"
+                data-bs-title="Generates and stores electricity by exposing solar panels to the sun’s light. While solar power is completely renewable with no environmental consequences, the efficiency is drastically affected by weather conditions and time. Solar panels also have lower energy density compared to non-renewable energy, so solar power panels must be installed throughout a large area. Solar power is also more expensive than fossil fuel or natural gas but is cheaper than nuclear fission or fusion.">
+                Solar Plant
+                </button>
+                <p id="SPCost">Cost: $200 / +$10 per second</p>
+
+                <button type="button" onclick="purchaseNaturalGas()" style="font-family: 'Audiowide', Arial, sans-serif;" class="btn btn-outline-danger"
+                data-bs-toggle="tooltip" data-bs-placement="left"
+                data-bs-title="Natural gas, made from organic sources, is extracted from natural gas deposits beneath the surface of the Earth. The compression and heating process causes the carbon bonds in the organic matter to break down and produce thermogenic methane—natural gas. Natural gas is cheaper than fossil fuels but is dangerous because it is combustible and it’s also nonrenewable as there is limited supply on Earth. Combusting natural gas also produces greenhouse gases.">
+                Natural Gas
+                </button>
+                <p id="NGCost">Cost: $500 / +$50 per second</p>
+
+                <button type="button" onclick="purchaseDAC()" style="font-family: 'Audiowide', Arial, sans-serif;" class="btn btn-outline-success"
+                data-bs-toggle="tooltip" data-bs-placement="left"
+                data-bs-title="Direct Air Capture (DAC). A geoengineering technology that captures CO2 from the air to reduce atmospheric concentration of carbon dioxide. The captured CO2 is either permanently stored or utilized for commercial purposes. Solid adsorbents, aqueous basic solution (such as potassium hydroxide) or special filters are used to capture CO2. Current large players on the market include Climeworks and Carbon Engineering. While it has the potential to achieve carbon neutrality, it is difficult and capital intensive to scale up.">
+                Direct Air Capture
+                </button>
+                <p id="DACCost">Cost: $1500 / +$125 per second</p>
+
+                <button type="button" onclick="purchaseNuclearFission()" style="font-family: 'Audiowide', Arial, sans-serif;" class="btn btn-outline-primary"
+                data-bs-toggle="tooltip" data-bs-placement="left"
+                data-bs-title="Utilizes Uranium-235, which is highly radioactive, to split one large atom into two smaller atoms. This is called a fission reaction which produces heat to power a turbine to generate electricity and radiation. While fission does not produce carbon dioxide, long-lived radioactive waste is produced when operating a nuclear fission power plant, requiring meticulous care and supervision. Fission is more expensive than all energy sources except for nuclear fusion power plants.">
+                Nuclear Fission Plant
+                </button>
+                <p id="NPPCost">Cost: $15000 / +$1500 per second</p>
+
+                <button type="button" onclick="purchaseNuclearFusion()" style="font-family: 'Audiowide', Arial, sans-serif;" class="btn btn-outline-success"
+                data-bs-toggle="tooltip" data-bs-placement="left"
+                data-bs-title="Combines Deuterium and Tritium in a fusion chamber by heating to 50 million degrees Celsius to cause a fusion reaction. The fusion reaction produces heat which can be used to power a steam turbine and generate electricity. No uranium waste is produced nor is there a risk of nuclear meltdown risk due to the fusion reaction. Fusion, unlike wind or solar energy, can consistently generate electricity reliably. However, nuclear fusion, a new technology, is very expensive. ">
+                Nuclear Fusion Plant
+                </button>
+                <p id="NFPCost">Cost: $249999 / +$23456 per second</p>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Link to Bootstrap Javascript-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script> // Initialize Tooltips
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+
+</body>
+
+</html>

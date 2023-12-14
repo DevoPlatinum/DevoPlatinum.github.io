@@ -1,0 +1,141 @@
+h1 {
+    font-family: "Audiowide", Arial, sans-serif;
+    /* text-shadow: 1px 1px 1px #fff; */
+}
+
+h2 {
+    font-family: "Audiowide", Arial, sans-serif;
+    /* text-shadow: 1px 1px 1px #fff; */
+}
+
+h3 {
+    font-family: "Audiowide", Arial, sans-serif;
+    /* text-shadow: 1px 1px 1px #fff; */
+}
+
+p {
+    font-family: "Audiowide", Arial, sans-serif;
+    /* text-shadow: 1px 1px 1px #fff; */
+}
+
+.header {
+    height: 12vh;
+    background: #968a8a;
+    color: #fff;
+    text-align: center;
+}
+
+.left {
+    height: 88vh;
+    background-color: silver;
+  }
+
+.middle {
+    height: 88vh;
+    background-image: url('space.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.right {
+    height: 88vh;
+    background-color: lightgoldenrodyellow;
+}
+
+.imgEarth {
+    width: 55vh;
+    height: 55vh;
+}
+
+.earth {
+    cursor: pointer;
+
+    width: 55.5vh;
+    height: 55.5vh;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 90%;
+    background: #ADD8E6;
+    animation: pulse 1500ms infinite;
+}
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 #E0FFFF;
+    }
+
+    100% {
+        box-shadow: 0 0 0 45px rgba(0, 0, 0, 0.0);
+    }
+}
+
+.newsTitle {
+    padding-top: 18px;
+    padding-bottom: 9px;
+    text-align: center;
+}
+
+.sTitle {
+    padding-top: 9px;
+    padding-bottom: 9px;
+    text-align: center;
+}
+
+.mTitle {
+    padding-top: 7px;
+    padding-bottom: 2px;
+    text-align: left;
+}
+
+.purchase {
+    height: 80px;
+    line-height: 80px;
+}
+
+.moneyBox {
+    height: 17vh;
+    background-color: antiquewhite;
+}
+
+#gold {
+    text-align: left;
+}
+
+#goldps {
+    text-align: left;
+}
+
+#news1 {
+    text-align: center;
+    font-family: "Audiowide", Arial, sans-serif;
+    font-size: x-large;
+}
+
+#news2 {
+    text-align: center;
+    font-family: "Audiowide", Arial, sans-serif;
+    font-size: x-large;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.pbar {
+    top: 92vh;
+    position:absolute;
+    width: 23.5%;
+}
+
+.purifybar {
+    text-align: left;
+    font-family: "Audiowide", Arial, sans-serif;
+    font-size: x-large;
+    position: absolute;
+    top: 87vh;
+}
